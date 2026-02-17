@@ -23,4 +23,4 @@ A responsive web application for ordering custom cakes online. Users can browse 
 - EmailJS (for sending emails from forms)
 
 ## Author
-Mayuri Pardeshi
+Mayuri Pardeshi...
