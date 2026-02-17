@@ -4,7 +4,6 @@ A responsive web application for ordering custom cakes online. Users can browse 
 
 ## Features
 - Browse different types of cakes
-- Add cakes to cart
 - Place an order with delivery information
 - Responsive design for desktop and mobile
 - Modern UI with animations and color highlights
@@ -13,7 +12,7 @@ A responsive web application for ordering custom cakes online. Users can browse 
 ## How to Use
 1. Open `index.html` in your browser
 2. Browse available cakes
-3. Select cakes and add to cart
+3. Select cakes and order
 4. Fill delivery details and place the order
 5. Enjoy your online cake shopping experience!
 
@@ -21,8 +20,7 @@ A responsive web application for ordering custom cakes online. Users can browse 
 - HTML
 - CSS
 - JavaScript
-- Optional: JSON / LocalStorage for saving orders
-- Optional: Animation libraries for UI effects
+- EmailJS (for sending emails from forms)
 
 ## Author
 Mayuri Pardeshi
