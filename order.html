@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Cake - Pink Petal Bakes</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<nav>
+    <h2 class="logo">Pink Petal Bakes</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="order.html" class="active">Order</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+</header>
+
+<section class="form-section">
+    <h2>Custom Cake Order</h2>
+
+    <form id="order-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="number" name="phone" placeholder="Phone Number" required>
+
+        <select name="cake" required>
+            <option value="">Select Cake Type</option>
+            <option>Chocolate Truffle</option>
+            <option>Red Velvet</option>
+            <option>Black Forest</option>
+            <option>Butterscotch</option>
+            <option>Pineapple Cake</option>
+            <option>Strawberry Cake</option>
+            <option>KitKat Special</option>
+            <option>Oreo Cake</option>
+            <option>Blueberry Cake</option>
+            <option>Custom Photo Cake</option>
+            <option>Mango Delight</option>
+            <option>Chocolate Fudge</option>
+            <option>Rainbow Cake</option>
+            <option>White Forest</option>
+            <option>Chocolate Mousse Cake</option>
+            <option>Caramel Crunch</option>
+            <option>Anniversary Special</option>
+        </select>
+
+        <textarea name="message" placeholder="Special Instructions"></textarea>
+
+        <button type="submit">Place Order</button>
+    </form>
+
+    <p id="order-status" style="margin-top:15px; font-weight:500;"></p>
+</section>
+
+<footer>
+<p>© 2026 Pink Petal Bakes | Made with ❤️</p>
+</footer>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+    emailjs.init("vrrx6al-wZFk8Pyb1");
+})();
+
+const orderForm = document.getElementById("order-form");
+
+orderForm.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    emailjs.sendForm("service_hq8mhgm", "template_a10pqs4", this)
+    .then(function(){
+        document.getElementById("order-status").innerText = "Your order has been sent successfully!";
+        orderForm.reset();
+    }, function(){
+        document.getElementById("order-status").innerText = "Something went wrong. Please try again.";
+    });
+});
+</script>
+
+</body>
+</html>

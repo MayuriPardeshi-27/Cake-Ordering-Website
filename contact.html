@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Pink Petal Bakes</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+<nav>
+    <h2 class="logo">Pink Petal Bakes</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="order.html">Order</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+</nav>
+</header>
+
+<section class="form-section">
+    <h2>Contact Us</h2>
+
+    <form id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+
+    <p id="contact-status" style="margin-top:15px; font-weight:500;"></p>
+</section>
+
+<footer>
+<p>© 2026 Pink Petal Bakes | Made with ❤️</p>
+</footer>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+    emailjs.init("vrrx6al-wZFk8Pyb1");
+})();
+
+const contactForm = document.getElementById("contact-form");
+
+contactForm.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    emailjs.sendForm("service_hq8mhgm", "template_a10pqs4", this)
+    .then(function(){
+        document.getElementById("contact-status").innerText = "Your message has been sent successfully!";
+        contactForm.reset();
+    }, function(){
+        document.getElementById("contact-status").innerText = "Something went wrong. Please try again.";
+    });
+});
+</script>
+
+</body>
+</html>
